@@ -1,0 +1,78 @@
+<form class="container main_form " [formGroup]="form">
+  <div class="title form-group">Weather Search</div>
+  <div class="row form-group">
+      <div class="col-md-1 offset-md-1">
+          <span>Street</span><span class="asterisk">*</span>
+      </div>
+      <div class="col-md-6 offset-md-1">
+          <input name="street" type="text" placeholder="Enter Street Name" formControlName="street" [attr.disabled]="is_checked ? '':null">
+          <div class="text-danger" *ngIf="this.form.controls.street.errors.text && (this.form.controls.street.dirty || this.form.controls.street.touched)">Please enter a street. </div>
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-md-1 offset-md-1">
+          <span>City</span><span class="asterisk">*</span>
+      </div>
+      <div class="col-md-6 offset-md-1">
+          <input name="city" type="text" placeholder="Enter City Name" formControlName="city" [attr.disabled]="is_checked ? '':null" [matAutocomplete]="auto">
+          <div class="text-danger" *ngIf="this.form.controls.city.errors.text && (this.form.controls.city.dirty || this.form.controls.city.touched)">Please enter a city. </div>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option class=".text-dark" *ngFor="let option of filteredOptions" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>  
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-md-1 offset-md-1">
+          <span>State</span>
+      </div>
+      <div class="col-md-6 offset-md-1">
+          <select  #state name="state" formControlName="state" [attr.disabled]="is_checked ? '':null">
+            <option value="" selected disabled>Select State</option>
+            <option *ngFor="let state of states" [value]="state.Abbreviation">{{state.State}}</option>
+          </select>
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="offset-md-1 pl-md-3">
+          <input name="current_location" type="checkbox" formControlName="current_location"> <span>Current Location</span>
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-md-4 offset-md-1">
+          <button class="m-md-2" [disabled]="!is_valid" (click)="onSubmit(form.value)"><img src=".././assets/search_1.png" >Submit</button>
+          <button class="m-md-2" (click)="onClear()"><img src=".././assets/clear_all_1.png" >Clear</button>
+      </div>
+  </div>
+</form>
+<div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+  <button class="offset-lg-2 offset-md-2 offset-sm-2" [ngStyle]="{'background-color': isFavClicked === true ? 'white' : 'rgb(91,126,153)','color': isFavClicked === true ? 'gray' : 'white' }">Results</button>
+  <button class="m-md-2" [ngStyle]="{'background-color': isFavClicked === true ? 'rgb(91,126,153)' : 'white','color': isFavClicked === true ? 'white' : 'gray' }" (click)="FavClicked()">Favorites</button>
+</div>
+<div *ngIf="isFavClicked">
+    <table class="table container" *ngIf="(favoriteList != null) && (favoriteList.length > 0); else noFav">
+        <thead>
+        <tr class="d_blue">
+            <th class="text-dark" scope="col">#</th><th class="text-dark" scope="col">Image</th><th class="text-dark" scope="col">City</th><th class="text-dark" scope="col">State</th><th class="text-dark" scope="col">Wish List</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fav of favoriteList; index as i" [ngStyle]="{'background-color':i%2 === 0 ? 'rgb(149, 197 , 234)' : 'rgb(91,126,153)' }">
+            <th class="text-dark" scope="row">{{i+1}}</th><td><img class="fav_seal"src={{fav.seal}} /></td><td><a class="link"  href="#" (click)="onSubmit({'street':'','city':fav.city,'state':fav.state,'current_location':false})" data-toggle="tooltip" title="fav.city">{{fav.city}}</a></td><td class="text-dark">{{fav.state}}</td><td><i class="material-icons" style="color:rgb(227,164,0)" (click)="deleteFavorite({'city':fav.city,'state':fav.state})">delete</i>
+        </tr>
+        </tbody>
+    </table>
+    <ng-template #noFav>
+    <div class="alert alert-warning text-dark" role="alert">
+    No Records.
+    </div>
+    </ng-template>
+</div>
+<div class="progress container-fluid" *ngIf="isLoading">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+</div>
+<div class="alert alert-warning text-dark" role="alert" *ngIf="(isFavClicked == false) && (isError == true)">
+    Invalid Address.
+    </div>
+<app-menu [data]="data" [bind]="bind" [toggleFavorite]="toggleFavorite" *ngIf="(data != null) && (isFavClicked == false) && (isError == false)"></app-menu>

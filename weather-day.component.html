@@ -1,0 +1,34 @@
+<div #myModalBackDrop class="modal-backdrop"></div>
+
+
+<div #myModal class="modal show" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d_blue">
+        <h5 class="modal-title text-body">{{selected_weather.date}}</h5>
+        <button #myModalClose type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body l_blue row mx-0">
+        <ul class="list-unstyled col-6">
+          <li class="city2md city2sm text-body">{{selected_weather.city}}</li>
+          <li class="temperature2md temperature2sm text-body">{{selected_weather.temperature}}<img class="dot"src={{temperature_img}}><span>F</span></li>
+          <li class="summary2md temperature2sm text-secondary" >{{selected_weather.summary}}</li>
+        </ul>
+        <div class="col-6">
+            <img class="img-fluid col-8 offset-4 pt-5 image_size" src={{icon[selected_weather.icon]}}/>
+        </div>
+      </div>
+      <div class="my_footer their_footer l_blue">
+        <ul class="list-unstyled col-6">
+          <li class="text-secondary" >{{'Percipitation : '+selected_weather.precipitation}}</li>
+          <li class="text-secondary" >{{'Chance of Rain : '+selected_weather.chanceOfRain+' %'}}</li>
+          <li class="text-secondary" >{{'Wind Speed : '+selected_weather.windSpeed+' mph'}}</li>
+          <li class="text-secondary" >{{'Humidity : '+selected_weather.humidity+' %'}}</li>
+          <li class="text-secondary" >{{'Visibility : '+selected_weather.visibility+' miles'}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

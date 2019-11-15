@@ -1,0 +1,15 @@
+<nav class="container">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active text-body" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Current</a>
+    <a class="nav-item nav-link text-body" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Hourly</a>
+    <a class="nav-item nav-link text-body" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Weekly</a>
+    
+    <a class="nav-link nav-item ml-md-auto twitter-share-button" target="_blank" rel="noopener noreferrer" href={{text}}><img class="twitter_icon"src="http://csci571.com/hw/hw8/Images/Twitter.png" /></a>
+    <a class="nav-link nav-item" style="background-color: rgb(248,248,248);" href="#" (click)="toggleFavorite()"><i class="material-icons" style="color:rgb(248,213,86)" *ngIf="yellowxx == true">star</i><i class="material-icons" style="color:black" *ngIf="yellowxx == false">star_border</i></a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active container" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><app-currently-tab [data]="data.currently"></app-currently-tab></div>
+  <div class="tab-pane fade container" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><app-hourly-tab [data]="data.hourly"></app-hourly-tab></div>
+  <div class="tab-pane fade container" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><app-weekly-tab [data]="data.weekly"></app-weekly-tab></div>
+</div>

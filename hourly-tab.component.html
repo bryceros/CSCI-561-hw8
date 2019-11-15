@@ -1,0 +1,20 @@
+ <select  #selectchart name="bar" (change)="callType(selectchart.value)">
+    <option value="temperature" selected>Temperature</option>
+    <option value="pressure">Pressure</option>
+    <option value="humidity">Humidity</option>
+    <option value="ozone">Ozone</option>
+    <option value="visibility">Visibility</option>
+    <option value="windSpeed">WindSpeed</option>
+ </select>
+
+<div class="chart-wrapper">
+    <canvas baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="chartColors">
+  </canvas>
+</div>

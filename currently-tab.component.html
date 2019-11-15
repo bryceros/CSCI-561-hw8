@@ -1,0 +1,40 @@
+            <div class="currently row">
+            <ul class="list-unstyled col-6">
+            <li class="city text-body">{{data["City"]}}</li>
+            <li class="timezone text-secondary">{{data["Timezone"]}}</li>
+            <li class="temperature text-body">{{data["Temperature"]}}<img class="dot"src={{temperature_img}}><span>F</span></li>
+            <li class="summary text-body">{{data["Summary"]}}</li>
+            </ul>
+            <div class="col-6">
+            <img class="img-fluid col-8 offset-4 pt-5 image_size" src={{seal_img}}/>
+            </div>
+            
+            <div class="d-flex flex-row align-bottom mt-auto" data-toggle="tooltip" title="Humidity">
+            <span class="item d-flex flex-column container">
+            <img class="img-fluid" src={{humidity_img}}/>
+            <span class="caption text-body">{{data["Humidity"]}}</span>
+            </span>
+            <span class="item d-flex flex-column container" data-toggle="tooltip" title="Pressure">
+            <img class="img-fluid" src={{pressure_img}}/>
+            <span class="caption text-body">{{data["Pressure"]}}</span>
+            </span>
+            <span class="item d-flex flex-column container" data-toggle="tooltip" title="Wind Speed">
+            <img class="img-fluid" src={{windSpeed_img}}/>
+            <span class="caption text-body">{{data["WindSpeed"]}}</span>
+            </span>
+            <span class="item d-flex flex-column container" data-toggle="tooltip" title="Visibility">
+            <img class="img-fluid" src={{visibility_img}}/>
+            <span class="caption text-body">{{data["Visibility"]}}</span>
+            </span>
+            <span class="item d-flex flex-column container" data-toggle="tooltip" title="Cloud Cover">
+            <img class="img-fluid" src={{cloudCover_img}}/>
+            <span class="caption text-body">{{data["CloudCover"]}}</span>
+            </span>
+            <span class="item d-flex flex-column container" data-toggle="tooltip" title="Ozone">
+            <img class="img-fluid" src={{ozone_img}}/>
+            <span class="caption text-body">{{data["Ozone"]}}</span>
+            </span>
+            </div>
+
+
+            </div>';
