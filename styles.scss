@@ -1,0 +1,176 @@
+:root{
+    --main-background-color:rgb(91,126,153);
+    --currently-background-color:rgb(149, 197 , 234);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input[type="text"] {
+    color: gray;
+    width: 100%;
+}
+mat-option span{
+    color: gray;
+}
+
+option {
+    background-color:rgba(0, 0, 0, 0.6);
+}
+button {
+    color: gray;
+}
+button:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity:0.5;
+}
+
+.main_form {
+    background-color: var(--main-background-color);
+    padding: 5% 0;
+    color: white;
+    border-radius: 10px;
+}
+.main_form * span{
+    font-size: 0.8em;
+}
+.title{
+    font-size: 2em;
+    text-align: center;
+}
+.asterisk{
+    color:red;
+}
+
+.middle{
+    margin: 0 auto;
+}
+#results{
+    background-color: var(--main-background-color);
+    color: white;
+}
+// currently
+.currently{
+    background-color:  var(--currently-background-color);
+    padding: 5% 5% 0 5%;
+    border-radius: 10px;
+
+}
+
+.l_blue{
+    background-color:  var(--currently-background-color);
+}
+.d_blue{
+    background-color:  var(--main-background-color);
+}
+.text_black{
+    color:black;
+}
+.dot {
+    height: 10px;
+    vertical-align: top;
+}
+.item{
+    text-align: center;
+    font-size: 2.5vmin;
+}
+.item img{
+    width: 25%;
+    margin: 0 auto;
+}
+.twitter_icon{
+    width: 40px;
+    height: 40px;
+}
+
+.fav_seal{
+    width: 40px;
+    height: 40px;
+    color:yellow
+
+}
+
+.table td, .table th{
+    text-align: center;  
+    //vertical-align: middle!important; 
+ }
+ .link{ color: #0000EE !important; }
+
+ .city{
+    //font-size: 200%;
+    font-size: 5vmin;
+ }
+ .timezone{
+    //font-size: 200%;
+    font-size: 5vmin;
+ }
+ .temperature{
+    //font-size: 200%;
+    font-size: 5vmin;
+    padding: 5% 0;
+ }
+ .summary{
+    //font-size: 150%;
+    font-size: 3.75vmin;
+    padding: 5% 0;
+ }
+
+.modal-backdrop
+{
+    opacity:0.5 !important;
+}
+ 
+ @media (min-width: 576px) {  
+ .my_footer{
+    padding: 1rem;
+    border-top: 2px solid #dee2e6;
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+ }
+ .city2sm{
+    font-size: 1.3em;
+    white-space: nowrap;
+ }
+ .temperature2sm{
+    //font-size: 200%;
+    font-size: 1.4em;
+    padding: 2.5% 0;
+ }
+ .summary2sm{
+    //font-size: 150%;
+    font-size: 1em;
+    padding: 5% 0;
+ }
+}
+@media (min-width: 768px) {
+ .their_footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid 
+    #dee2e6;
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+.city2md{
+    font-size: 3.5vmin;
+ }
+ .temperature2md{
+    //font-size: 200%;
+    font-size: 5vmin;
+    padding: 2.5% 0;
+ }
+ .summary2md{
+    //font-size: 150%;
+    font-size: 2vmin;
+    padding: 5% 0;
+ }
+}
+.image_size{
+    min-width: 100px;
+    min-height: 100px;
+} 
